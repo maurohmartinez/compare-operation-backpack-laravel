@@ -1,0 +1,27 @@
+{
+  "name": "maurohmartinez/compare-operation-backpack-laravel",
+  "description": "Compare two models",
+  "type": "library",
+  "require": {
+    "php": "^7.3|^8.0",
+    "laravel/framework": "^8.0.0|^9.0.0|^10.0.0"
+  },
+  "keywords": [
+    "laravel",
+    "backpack",
+    "compare operation"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "maurohmartinez",
+      "email": "maurohmartinez@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "MHMartinez\\CompareOperation\\": "src/"
+    }
+  }
+}
