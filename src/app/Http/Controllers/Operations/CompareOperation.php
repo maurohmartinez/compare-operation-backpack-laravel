@@ -36,7 +36,7 @@ trait CompareOperation
 
         $this->crud->operation('list', function () {
             $this->crud->enableBulkActions();
-            $this->crud->addButton('bottom', 'bulk_delete', 'view', 'crud::buttons.compare');
+            $this->crud->addButton('bottom', 'bulk_compare', 'view', 'compare-operation::buttons.compare');
         });
     }
 

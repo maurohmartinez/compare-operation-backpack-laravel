@@ -23,5 +23,15 @@
     "psr-4": {
       "MHMartinez\\CompareOperation\\": "src/"
     }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "MHMartinez\\CompareOperation\\app\\Providers\\CompareOperationServiceProvider"
+      ],
+      "aliases": {
+        "CompareOperation": "MHMartinez\\CompareOperation\\Facades\\CompareOperation"
+      }
+    }
   }
 }
