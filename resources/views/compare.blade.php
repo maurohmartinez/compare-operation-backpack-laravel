@@ -42,7 +42,7 @@
                             </button>
                             <ul class="dropdown-menu">
                                 @foreach ($crud->model->getAvailableLocales() as $key => $locale)
-                                    <a class="dropdown-item" href="{{ url($crud->route.'/'.$entry->getKey().'/show') }}?_locale={{ $key }}">{{ $locale }}</a>
+                                    <a class="dropdown-item" href="{{ url($crud->route.'/'.$entries->first()->getKey().'/show') }}?_locale={{ $key }}">{{ $locale }}</a>
                                 @endforeach
                             </ul>
                         </div>
@@ -50,10 +50,10 @@
                 </div>
             @endif
             @if($crud->tabsEnabled() && count($crud->getUniqueTabNames('columns')))
-                @include('crud::inc.show_tabbed_table')
+                @include('crud::inc.show_tabbed_table', ['entry' => $entries[0]])
             @else
                 <div class="card no-padding no-border mb-0">
-                    @include('crud::inc.show_table', ['columns' => $crud->columns()])
+                    @include('crud::inc.show_table', ['columns' => $crud->columns(), 'entry' => $entries[0]])
                 </div>
             @endif
         </div>
@@ -70,7 +70,7 @@
                             </button>
                             <ul class="dropdown-menu">
                                 @foreach ($crud->model->getAvailableLocales() as $key => $locale)
-                                    <a class="dropdown-item" href="{{ url($crud->route.'/'.$entry1->getKey().'/show') }}?_locale={{ $key }}">{{ $locale }}</a>
+                                    <a class="dropdown-item" href="{{ url($crud->route.'/'.$entries[1]->getKey().'/show') }}?_locale={{ $key }}">{{ $locale }}</a>
                                 @endforeach
                             </ul>
                         </div>
@@ -78,10 +78,10 @@
                 </div>
             @endif
             @if($crud->tabsEnabled() && count($crud->getUniqueTabNames('columns')))
-                @include('crud::inc.show_tabbed_table', ['entry' => $entry1])
+                @include('crud::inc.show_tabbed_table', ['entry' => $entries[1]])
             @else
                 <div class="card no-padding no-border mb-0">
-                    @include('crud::inc.show_table', ['columns' => $crud->columns(), 'entry' => $entry1])
+                    @include('crud::inc.show_table', ['columns' => $crud->columns(), 'entry' => $entries[1]])
                 </div>
             @endif
         </div>

@@ -34,12 +34,12 @@ trait CompareOperation
     {
         $this->crud->hasAccessOrFail('compare');
 
-        if ($this->crud->get('show.softDeletes') && in_array('Illuminate\Database\Eloquent\SoftDeletes', class_uses($this->crud->model))) {
-            $this->data['entry'] = $this->crud->getModel()->withTrashed()->findOrFail($firstId);
-            $this->data['entry1'] = $this->crud->getModel()->withTrashed()->findOrFail($secondId);
-        } else {
-            $this->data['entry'] = $this->crud->getModel()->findOrFail($firstId);
-            $this->data['entry1'] = $this->crud->getModel()->findOrFail($secondId);
+        $this->data['entries'] = in_array('Illuminate\Database\Eloquent\SoftDeletes', class_uses($this->crud->model))
+            ? $this->crud->getModel()->withTrashed()->whereIn('id', [$firstId, $secondId])->get()
+            : $this->crud->getModel()->whereIn('id', [$firstId, $secondId])->get();
+
+        if ($this->data['entries']->count() !== 2) {
+            abort(404);
         }
 
         $this->data['crud'] = $this->crud;

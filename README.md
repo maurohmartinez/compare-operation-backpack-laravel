@@ -1,7 +1,7 @@
 # Compare Operation for Backpack for Laravel
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
-[![Total Downloads][ico-downloads]][link-downloads]
+[![Total Downloads][ico-downloads]][link-packagist]
 
 This package adds a Compare Operation for projects using the [Backpack for Laravel](https://backpackforlaravel.com/) administration panel.
 
@@ -74,5 +74,4 @@ However, please note that you do need Backpack installed, so you need to also ab
 [ico-downloads]: https://img.shields.io/packagist/dt/maurohmartinez/compare-operation-backpack-laravel.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/maurohmartinez/compare-operation-backpack-laravel
-[link-downloads]: https://packagist.org/packages/maurohmartinez/compare-operation-backpack-laravel
 
