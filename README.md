@@ -70,11 +70,9 @@ This project is free for use, so you can install it on top of any Backpack & Lar
 However, please note that you do need Backpack installed, so you need to also abide by its [YUMMY License](https://github.com/Laravel-Backpack/CRUD/blob/master/LICENSE.md). That means in production you'll need a Backpack license code. You can get a free one for non-commercial use (or a paid one for commercial use) on [backpackforlaravel.com](https://backpackforlaravel.com).
 
 
-[ico-version]: https://img.shields.io/packagist/v/:kc:vendor/:kc:package.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/:kc:vendor/:kc:package.svg?style=flat-square
+[ico-version]: https://img.shields.io/packagist/v/maurohmartinez/compare-operation-backpack-laravel.svg?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/maurohmartinez/compare-operation-backpack-laravel.svg?style=flat-square
 
-[link-packagist]: https://packagist.org/packages/:kc:vendor/:kc:package
-[link-downloads]: https://packagist.org/packages/:kc:vendor/:kc:package
-[link-author]: https://github.com/:kc:vendor
-[link-contributors]: ../../contributors
+[link-packagist]: https://packagist.org/packages/maurohmartinez/compare-operation-backpack-laravel
+[link-downloads]: https://packagist.org/packages/maurohmartinez/compare-operation-backpack-laravel
 
