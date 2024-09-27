@@ -40,7 +40,7 @@ protected function setupCompareOperation(): void
 
 ## Change log
 
-Changes are documented here on Github. Please see the [Releases tab](https://github.com/maurohmartinez/backpack-compare-operation/releases).
+Changes are documented here on Github. Please see the [Releases tab](https://github.com/maurohmartinez/compare-operation-backpack-laravel/releases).
 
 ## Testing
 
@@ -51,8 +51,8 @@ composer test
 ## Contributing
 
 Contributions are welcome and will be fully credited:
-- code contributions are accepted via Pull Requests to [this Github repo](https://github.com/maurohmartinez/backpack-compare-operation);
-- documentation contributions are accepted via Pull Requests to [this Github repo](https://github.com/maurohmartinez/backpack-compare-operation);
+- code contributions are accepted via Pull Requests to [this Github repo](https://github.com/maurohmartinez/compare-operation-backpack-laravel);
+- documentation contributions are accepted via Pull Requests to [this Github repo](https://github.com/maurohmartinez/compare-operation-backpack-laravel);
 - other contributions are most likely welcome in the way you see fit;
 
 ## Security
