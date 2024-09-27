@@ -1,76 +1,37 @@
-@if ($crud->hasAccess('bulkClone') && $crud->get('list.bulkActions'))
-	<a href="javascript:void(0)" onclick="bulkCloneEntries(this)" class="btn btn-sm btn-secondary bulk-button"><i class="la la-copy"></i> {{ trans('backpack::crud.clone') }}</a>
+@if ($crud->hasAccess('compare') && $crud->get('list.bulkActions'))
+    <a href="javascript:void(0)" onclick="compareEntries()" class="btn btn-sm btn-secondary bulk-button">
+        <i class="la la-not-equal me-1 mr-1"></i> Compare
+    </a>
 @endif
 
 @push('after_scripts')
-<script>
-	if (typeof bulkCloneEntries != 'function') {
-	  function bulkCloneEntries(button) {
+    <script>
+        if (typeof compareEntries != 'function') {
 
-	      if (typeof crud.checkedItems === 'undefined' || crud.checkedItems.length == 0)
-	      {
-  	        new Noty({
-	          type: "warning",
-	          text: "<strong>{!! trans('backpack::crud.bulk_no_entries_selected_title') !!}</strong><br>{!! trans('backpack::crud.bulk_no_entries_selected_message') !!}"
-	        }).show();
+            function compareEntries() {
+                if (typeof crud.checkedItems === 'undefined' || crud.checkedItems.length === 0) {
+                    return new Noty({
+                        type: "warning",
+                        text: "<strong>{!! trans('backpack::crud.bulk_no_entries_selected_title') !!}</strong><br>{!! trans('backpack::crud.bulk_no_entries_selected_message') !!}"
+                    }).show();
+                }
 
-	      	return;
-	      }
+                if (crud.checkedItems.length === 1) {
+                    return new Noty({
+                        type: "warning",
+                        text: "<strong>Not so fast!</strong><br>Select one more entry to compare."
+                    }).show();
+                }
 
-	      var message = "{!! trans('backpack::crud.bulk_clone_are_you_sure') !!}";
-	      message = message.replace(":number", crud.checkedItems.length);
+                if (crud.checkedItems.length > 2) {
+                    return new Noty({
+                        type: "warning",
+                        text: "<strong>Not so fast!</strong><br>You cannot select more than 2 entries to compare."
+                    }).show();
+                }
 
-	      // show confirm message
-	      swal({
-			  title: "{!! trans('backpack::base.warning') !!}",
-			  text: message,
-			  icon: "warning",
-			  buttons: {
-			  	cancel: {
-				  text: "{!! trans('backpack::crud.cancel') !!}",
-				  value: null,
-				  visible: true,
-				  className: "bg-secondary",
-				  closeModal: true,
-				},
-			  	delete: {
-				  text: "{{ trans('backpack::crud.clone') }}",
-				  value: true,
-				  visible: true,
-				  className: "bg-primary",
-				}
-			  },
-			}).then((value) => {
-				if (value) {
-					var ajax_calls = [];
-		      		var clone_route = "{{ url($crud->route) }}/bulk-clone";
-
-					// submit an AJAX delete call
-					$.ajax({
-						url: clone_route,
-						type: 'POST',
-						data: { entries: crud.checkedItems },
-						success: function(result) {
-						  // Show an alert with the result
-		    	          new Noty({
-				            type: "success",
-				            text: "<strong>{!! trans('backpack::crud.bulk_clone_sucess_title') !!}</strong><br>"+crud.checkedItems.length+" {!! trans('backpack::crud.bulk_clone_sucess_message') !!}"
-				          }).show();
-
-						  crud.checkedItems = [];
-						  crud.table.draw(false);
-						},
-						error: function(result) {
-						  // Show an alert with the result
-		    	          new Noty({
-				            type: "danger",
-				            text: "<strong>{!! trans('backpack::crud.bulk_clone_error_title') !!}</strong><br>"+crud.checkedItems.length+" {!! trans('backpack::crud.bulk_clone_error_message') !!}"
-				          }).show();
-						}
-					});
-				}
-			});
-      }
-	}
-</script>
+                window.location.href = '/{{ $crud->route }}/compare/' + crud.checkedItems[0] + '/' + crud.checkedItems[1];
+            }
+        }
+    </script>
 @endpush
